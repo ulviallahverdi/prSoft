@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="post">
+{% csrf_token %}
+{{form.as_p}}
+<button class="brn brn-primary" type="submit">Update</button>
+</form>
+{% endblock body %}

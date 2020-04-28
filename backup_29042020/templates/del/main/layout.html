@@ -1,0 +1,53 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Django</title>
+</head>
+{% include "navbar.html" %}
+
+<body>
+    
+
+<div class="container p-3 my-3 border">
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+
+    <li{% if message.tags == "success" %} class="alert alert-success" {% elif message.tags == "warning" %} class="alert alert-warning" {% elif message.tags == "error" %} class="alert alert-error" {% endif %}>{{ message }}</li>
+
+
+
+    {% endfor %}
+</ul>
+{% endif %}
+{% block body %}
+
+<center><h3>Welcome to blog</h3></center>
+
+{% if user|is_lazy_user %}
+user is lazy <br>
+{% elif user.is_authenticated %}
+user is authenticated
+{% elif user.is_anonymous %}
+user is anonymous
+{% else %}
+user is another one
+
+{% endif %}
+
+
+Dear {{request.user}}, Welcome also.
+{% endblock body %}
+
+</div>
+
+
+</body>
+
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+</html>

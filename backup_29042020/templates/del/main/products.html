@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<form method="get" class="form-inline my-2 my-lg-0">
+      <input name = "keyword" class="form-control mr-sm-2" type="search" placeholder="Search" >
+      <button class="btn btn-primary" value="search" type="submit">Search</button>
+      
+    </form>
+
+{% if perms.app1.add_product %}
+<a class="btn btn-success" href={% url "app1:addProduct"%}>Add Product</a>
+{% else %}
+{% endif %}
+
+
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Lost or Found</th>
+      <th scope="col">User</th>
+      <th scope="col">Created Date</th>
+      <th scope="col">Category</th>
+      <th scope="col">Image</th>
+      {% if request.user.is_staff %}
+      {% if perms.app1.delete_product %}
+      <th scope="col">Delete</th>
+      {% else %}
+      {% endif %}
+      {% if perms.app1.change_product %}
+      <th scope="col">Update</th>
+
+      {% else %}
+      {% endif %}
+
+      {% else %}
+      {% endif %}
+      
+
+    </tr>
+  </thead>
+  <tbody>
+
+{% for product in data  %}
+ <tr>
+      <th scope="row">{{product.title}}</th>
+      {% if product.lostorfound == True %}
+      <td>Lost</td>
+      {% else %}
+        <td>Found</td>
+      {% endif %}
+      <td>{{product.user}}</td>
+      <td>{{product.created_date}}</td>
+      <td>{{product.category}}</td>
+      <td>{{product.image.url}}</td>
+      {% if request.user.is_staff %}
+      {% if perms.app1.delete_product %}
+      <td><a class="btn btn-danger" href="/product/delete/{{product.id}}">Delete</a></td>
+      {% if perms.app1.change_product %}
+      <td><a class="btn btn-danger" href="/product/update/{{product.id}}">Update</a></td>
+       {% else %}
+       {% endif %}
+
+      {% else %}
+      {% endif %}
+
+      {% else %}
+      {% endif %}
+    </tr>
+
+
+
+{% endfor %}
+
+
+
+
+
+</tbody>
+</table>
+   
+<!-------------->
+
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Lost or Found</th>
+      <th scope="col">User</th>
+      <th scope="col">Created Date</th>
+      <th scope="col">Category</th>
+      <th scope="col">Image</th>
+      {% if request.user.is_staff %}
+      {% if perms.app1.delete_product %}
+      <th scope="col">Delete</th>
+      {% else %}
+      {% endif %}
+      {% if perms.app1.change_product %}
+      <th scope="col">Update</th>
+      <th scope="col">Publish</th>
+
+      {% else %}
+      {% endif %}
+
+      {% else %}
+      {% endif %}
+      
+
+    </tr>
+  </thead>
+  <tbody>
+
+
+<hr>
+<h3>Waiting for Publish</h3>
+
+{% for product in nonapproved  %}
+ <tr>
+      <th scope="row">{{product.title}}</th>
+      {% if product.lostorfound == True %}
+      <td>Lost</td>
+      {% else %}
+        <td>Found</td>
+      {% endif %}
+      <td>{{product.user}}</td>
+      <td>{{product.created_date}}</td>
+      <td>{{product.category}}</td>
+      <td>{{product.image.url}}</td>
+      {% if request.user.is_staff %}
+      {% if perms.app1.delete_product %}
+      <td><a class="btn btn-danger" href="/product/delete/{{product.id}}">Delete</a></td>
+      {% if perms.app1.change_product %}
+      <td><a class="btn btn-danger" href="/product/update/{{product.id}}">Update</a></td>
+      <td><a class="btn btn-danger" href="/product/publish/{{product.id}}">Publish</a></td>
+       {% else %}
+       {% endif %}
+
+      {% else %}
+      {% endif %}
+
+      {% else %}
+      {% endif %}
+    </tr>
+
+
+
+{% endfor %}
+
+
+
+
+
+</tbody>
+</table>
+ 
+
+
+{% endblock body %}
