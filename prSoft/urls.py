@@ -20,16 +20,16 @@ from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
-
-
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     #path('', TemplateView.as_view(template_name="social_app/user/google.html")),
     path('admin/', admin.site.urls),
     path('product/', include("app1.urls")),
-    path('',views.index),
+    url(r'^$',views.index),
     path('user/',include("user.urls")),
     path('accounts/',include("allauth.urls")),
+    url('^', include('django.contrib.auth.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

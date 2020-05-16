@@ -2,6 +2,7 @@ from django.forms import ModelForm
 #from user.models import Register
 from django import forms
 from django.contrib.auth.models import User
+from .models import UserExt
 
 class RegisterForm(ModelForm):
     username = forms.CharField(max_length=25)
@@ -23,3 +24,8 @@ class RegisterForm(ModelForm):
     class Meta:
         model = User
         fields = ["username","password","confirm"]
+
+class QeydiyyatForm(ModelForm):
+    class Meta:
+        model = UserExt
+        fields = ['image']

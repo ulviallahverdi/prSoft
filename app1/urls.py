@@ -27,5 +27,5 @@ urlpatterns = [
     path('update/<int:id>',views.updateProduct,name = "updateProduct"),
     path('asGuest',views.AsGuest,name="AsGUest"),
     path('pagi',views.listing,name="listing"),
-    path('additem',views.addItem,name="addItem"),
+    path('continueasguest/',views.ContinueAsGuest,name="ContinueAsGuest"),
 ]

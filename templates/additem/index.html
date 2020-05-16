@@ -1,0 +1,138 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Elan ver</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static '/additem/css/muli-font.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static '/additem/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css'%}">
+	<!-- datepicker -->
+	<link rel="stylesheet" type="text/css" href="{% static '/additem/css/jquery-ui.min.css'%}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static '/additem/css/style.css'%}"/>
+</head>
+<body>
+	<div class="page-content" style="background-image: url('{% static '/additem/images/wizard-v2-bg.jpg'%}')">
+		<div class="wizard-v2-content">
+			<div class="wizard-image">
+			</div>
+			<div class="wizard-form">
+				<div class="wizard-header">
+					<h3>Elan Ver</h3>
+					<p>İtirdiyiniz və ya tapdıqlarınızı əlavə edin.</p>
+				</div>
+		        <form class="form-register" method="post">
+		        	<div id="form-total">
+					<!-- SECTION 1 -->
+			            <h2>1</h2>
+			            <section>
+						
+			                <div class="inner">
+								<div class="form-row">
+								<div class="form-holder form-holder-2">
+										<select name="lostorfound" id="lostorfound" class="form-control">
+											<option value="" disabled selected>İtirmisən / Tapmısan ?</option>
+											<option value="True">İtirmişəm</option>
+											<option value="False">Tapmışam</option>
+										</select>
+										<span class="select-btn">
+											<i class="zmdi zmdi-chevron-down"></i>
+										</span>
+								</div>
+									
+								</div>
+							</div>
+			            </section>
+		        		<!-- SECTION 2 -->
+			            <h2>2</h2>
+			            <section>
+						
+			                <div class="inner">
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+									<input name="title" type="text" placeholder="Əşya nədir?" class="form-control" id="first_name">
+									<select name="location" id="location" class="form-control">
+											<option value="" disabled selected>Kateqoriya</option>
+											<span class="select-btn">
+											<i class="zmdi zmdi-chevron-down"></i>
+										</span>
+											<option value="True">Sənəd</option>
+											<option value="False">Heyvan</option>
+										</select>
+										
+										<input name = "location" type="text" placeholder="Harada itirmisiniz ?" class="form-control" id="Harada itirmisiniz ?">
+										
+										
+									</div>
+									<div class="form-holder form-holder-2">
+										
+										
+										
+									</div>
+								</div>
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="customFileLangHTML">
+									<label class="custom-file-label" for="customFileLangHTML" data-browse="Bestand kiezen">Şəkli seçin</label>
+								</div>
+								
+							
+							
+							
+							</div>
+							
+							
+							
+			            </section>
+						<!-- SECTION 1 -->
+			            <h2>3</h2>
+			            <section>
+						
+			                <div class="inner">
+								<div class="form-row">
+									<div class="form-holder">
+										<input type="text" name="fullname" required = "please"  placeholder="Adınız" class="form-control" id="first_name">
+									</div>
+									<div class="form-holder">
+										<input type="text" placeholder="Soyadınız" class="form-control" id="last_name">
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<input type="text" name="mobile_number"placeholder="Əlaqə nömrəniz" class="form-control" id="phone">
+									</div>
+									<div class="form-holder">
+										<input type="email" name="email" placeholder="Email" class="form-control" id="email">
+									</div>
+								</div>
+							</div>
+			            </section>
+						<!-- SECTION 2 -->
+						<h2>4</h2>
+			            <section>
+			                <div class="inner">
+								
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+									<input name="content" type="text" placeholder="Zəhmət olmasa əşya haqqında biraz məlumat verin" class="form-control" id="first_name">
+									<input name="bonus_amount" type="text" placeholder="Mükafat məbləği təyin edirsinizmi ?" class="form-control" id="first_name">
+									</div>
+							</div>
+			            </section>
+						
+						
+		        	</div>
+		        </form>
+			</div>
+		</div>
+	</div>
+
+	<script src="{% static '/additem/js/jquery-3.3.1.min.js'%}"></script>
+	<script src="{% static '/additem/js/jquery.steps.js'%}"></script>
+	<script src="{% static '/additem/js/jquery-ui.min.js'%}"></script>
+	<script src="{% static '/additem/js/main.js'%}"></script>
+</form>
+</body>
+</html>

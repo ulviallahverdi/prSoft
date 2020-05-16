@@ -83,11 +83,20 @@ TEMPLATES = [
     },
 ]
 
+#FOR ONLY DEVELOPMENT PURPOSES
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'allahverdiulvi@gmail.com'
+EMAIL_HOST_PASSWORD = 'blssy_94A1'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'ITIB.AZ TEAM <allahverdiulvi@gmail.com>'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'lazysignup.backends.LazySignupBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
+    
     
 )
 
@@ -195,4 +204,3 @@ LOGIN_REDIRECT_URL = '/user/login'
 LOGIN_URL = '/user/login'
 CKEDITOR_UPLOAD_PATH = "static/"
 SITE_ID = 2
-

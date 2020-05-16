@@ -1715,6 +1715,11 @@ Version:1.0
 	width: 100%;
 	border:none;
 }
+.product-area .nav-tabs1 {
+	text-align: center;
+	width: 100%;
+	border:none;
+}
 .product-area .nav-tabs .nav-item {
 	margin-bottom: -1px;
 	display: inline-block;

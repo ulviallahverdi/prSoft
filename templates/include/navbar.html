@@ -67,7 +67,7 @@
 							<div class="search-bar">
 								
 								<form>
-									<input name="keyword" placeholder="Search Products Here....." type="search">
+									<input name="keyword" placeholder="Burada axtara bilərsiniz....." type="search">
 									<button class="btnn"><i class="ti-search"></i></button>
 								</form>
 							</div>
@@ -82,20 +82,18 @@
 								<!-- Shopping Item -->
 								<div class="shopping-item">
 									<div class="dropdown-cart-header">
-										<span>Xoş gəlmişsiniz, {{request.user.username}}</span>
+										<span>Xoş gəlmişsiniz, {% if request.user|is_lazy_user %}qonaq{% else %}{{request.user.username}}{% endif %}</span>
 										
 									</div>
 									<ul class="shopping-list">
 										<li>
 											{% if user.is_superuser %}<li><i class="ti-user"></i> <a href="/admin">Admin Panel</a></li>{% else %}{% endif %}
-											
-											<h4><a href="#">Profilim</a></h4>
+											<h4><a href="/user/profile">Profilim</a></h4>
 											<hr>
 											<h4><a href="#">Elanlarım</a></h4>
 											<hr>
 											<h4><a href="#">Təkliflər</a></h4>
 											<hr>
-											
 										</li>
 									</ul>
 									<div class="bottom">
@@ -111,6 +109,7 @@
 			</div>
 		</div>
 		<!-- Header Inner -->
+		
 		<div class="header-inner">
 			<div class="container">
 				<div class="cat-nav-head">
@@ -131,6 +130,8 @@
 						<div class="col-lg-9 col-12">
 							<div class="menu-area">
 								<!-- Main Menu -->
+								{% block header_menu %}
+								
 								<nav class="navbar navbar-expand-lg">
 									<div class="navbar-collapse">	
 										<div class="nav-inner">	
@@ -161,6 +162,7 @@
 				</div>
 			</div>
 		</div>
+		{% endblock  %}
 		<!--/ End Header Inner -->
 	</header>
 	<!--/ End Header -->

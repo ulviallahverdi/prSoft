@@ -1,8 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
-from user.forms import RegisterForm
+from user.forms import RegisterForm,QeydiyyatForm
 from django.contrib.auth.models import User
 from django.contrib import messages
+from app1.models import Website
 
 
 def userLogin(request):
@@ -52,4 +53,15 @@ def userRegister(request):
     else:
         return render(request,"user/register.html")
 
+def UserRegister1(request):
+    form = QeydiyyatForm(request.POST or None,request.FILES or None)
+    if form.is_valid():
+        form.save(commit=False)
+        form.user = request.user
+        form.save()
+        return redirect("app1:viewProducts")
+    return render(request,"qeydiyyat.html",{"form":form})
 
+def userProfile(request):
+    website_settings = Website.objects.get(id=1)
+    return render(request,"user_profile/index.html",{"website_settings":website_settings,})
