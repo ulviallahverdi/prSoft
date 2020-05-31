@@ -65,3 +65,8 @@ def UserRegister1(request):
 def userProfile(request):
     website_settings = Website.objects.get(id=1)
     return render(request,"user_profile/index.html",{"website_settings":website_settings,})
+
+def GuestRegisterComplete(request):
+    website_settings = Website.objects.get(id=1)
+
+    return render(request,"user_profile/guest_register_complete.html",{"website_settings":website_settings,})

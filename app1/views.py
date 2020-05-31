@@ -53,23 +53,29 @@ from django.contrib.auth.models import Permission, User
 
 def index(request):
     #get all categories
-    category = request.GET.get("category")
     #if there is category search then search based on category keyword
-    if category:
-        data = Product.objects.filter(approve=1,category=category)
+    yalniz = request.GET.get("yalniz")
+    category = request.GET.get('category')
+    if yalniz == "tapilanlar":
+        data = Product.objects.filter(lostorfound = False,approve=1,category=category)
         website_settings = Website.objects.get(id=1)
         categories = Category.objects.all()
-        nonapproved = Product.objects.filter(approve=0)
         context = {
             "data":data,
-            "nonapproved":nonapproved,
             "categories":categories,
             'website_settings':website_settings,
         }
         return render(request,"index.html",context)
-
-    elif not request.user.is_authenticated:
-        return redirect("user:userLogin")
+    elif category:
+        data = Product.objects.filter(approve=1,category=category)
+        website_settings = Website.objects.get(id=1)
+        categories = Category.objects.all()
+        context = {
+            "data":data,
+            "categories":categories,
+            'website_settings':website_settings,
+        }
+        return render(request,"index.html",context)
     else:
         keyword = request.GET.get("keyword")
         if keyword:
@@ -100,7 +106,7 @@ def index(request):
         return render(request,"index.html",context)
 
 
-@allow_lazy_user
+
 @login_required
 def addProduct(request):
     if request.user:

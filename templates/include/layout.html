@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="{% static 'css/owl-carousel.css' %}">
 	<!-- Slicknav -->
     <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
 	
 	<!-- Eshop StyleSheet -->
 	<link rel="stylesheet" href="{% static 'css/reset.css' %}">
@@ -79,7 +80,7 @@
 								<div class="col-lg-7 col-12">
 									<div class="hero-text">
 										<h1><span>Biz sizə kömək edərik, </span>Artıq üzülməyin</h1>
-										<p>Bir-birimizə dəstək olmaq <br> bu qədər asan olmamışdır. <br>.</p>
+										<p>Bir-birimizə dəstək olmaq <br> bu qədər asan olmamışdır.<br></p>
 										<div class="button">
 											<a href="/product/add" class="btn">Əlavə Et!</a>
 										</div>
@@ -208,23 +209,57 @@
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                 <div class="quickview-content">
-                                    <h2>{% if product.lostorfound == True %}İtirmişəm: {% else %}Tapmışam: {% endif %}{{product.title}}</h2>
+                                    <h2></h2>
                                     
-                                    <h3>Kateqoriya: {{product.category}}</h3>
-                                    <div class="quickview-peragraph">
-                                       <p>{{product.content}}</p>
-									   Adı: {{product.fullname}}<br>
-									   Tarix: {{product.created_date}}<br>
-									   Məkan: {{product.location}}<br>
-									   <p  style = size:90px"; font-family: 'Titillium Web', sans-serif;">Write your text here</p>
-									    </div>
+                                    <h3></h3>
+                                    
 									
                                     
-									<div class="add-to-cart">
-										<a href="#" class="btn">Add to cart</a>
-										<a href="#" class="btn min"><i class="ti-heart"></i></a>
-										<a href="#" class="btn min"><i class="fa fa-compress"></i></a>
-									</div>
+									
+								<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">{% if product.lostorfound == True %}İtirmişəm: {% else %}Tapmışam: {% endif %}</th>
+      <th scope="col">{{product.title}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Kateqoriya:</th>
+      <td> {{product.category}}</td>
+      
+      
+    </tr>
+    <tr>
+      <th scope="row">Məzmun</th>
+      <td>{{product.content}}</td>
+      
+      
+    </tr>
+    <tr>
+      <th scope="row">Tam adı</th>
+      <td>{{product.fullname}}</td>
+      
+      
+    </tr>
+
+	<tr>
+      <th scope="row">Tarix</th>
+      <td>{{product.created_date}}</td>
+      
+      
+    </tr>
+
+	<tr>
+      <th scope="row">Məkan</th>
+      <td>{{product.location}}</td>
+      
+      
+    </tr>
+
+  </tbody>
+</table>
+
                                     
                                 </div>
                             </div>

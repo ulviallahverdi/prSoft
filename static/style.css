@@ -1233,6 +1233,7 @@ Version:1.0
 	font-weight: 700;
 	color: #0e7f40;
 	margin-bottom: 20px;
+	'Source Sans Pro', sans-serif
 }
 .hero-slider .hero-text h1 span {
 	font-size: 20px;
@@ -1241,6 +1242,7 @@ Version:1.0
 	color: #333;
 	font-weight: 700;
 	line-height: initial;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 .hero-slider .hero-text p {
 	color: #333;
@@ -3111,7 +3113,7 @@ Version:1.0
 .shopping-cart .total-amount .left .checkbox label::after {
 	position: absolute;
 	content: "\f00c";
-	font-family: "Fontawesome";
+	font-family: 'Source Sans Pro', sans-serif;
 	left: 0;
 	top: 0;
 	width: 22px;
@@ -3516,7 +3518,7 @@ Version:1.0
 .shop.login .login-form .checkbox label::after {
 	position: absolute;
 	content: "\f00c";
-	font-family: "Fontawesome";
+	font-family: 'Source Sans Pro', sans-serif;
 	width: 12px;
 	height: 12px;
 	line-height: 23px;

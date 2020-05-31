@@ -19,15 +19,41 @@
 						<!-- Top Right -->
 						<div class="right-content">
 							<ul class="list-main">
-								
 								{% if user.is_authenticated %}
 								Xoşgəldiniz,{% if user|is_lazy_user%} Əziz qonaq	{% else %} {{user.username}}	{% endif %}
 								
 								{% if user.is_superuser %}<li><i class="ti-user"></i> <a href="/admin">Admin Panel</a></li>{% else %}{% endif %}
 							
 								<li><i class="ti-user"></i> <a href="{% url "user:userLogout"%}">Çıxış</a></li>
-
+								{% elif not request.user.is_authenticated %}
+								
 								{% endif %}
+
+								<div class="sinlge-bar shopping">
+			
+							<a href="#" class="single-icon"><i class="fa fa-user-circle-o"></i >Hesabınız</a>
+								<!-- Shopping Item -->
+								<div class="shopping-item">
+									<div class="dropdown-cart-header">
+										<span>Xoş gəlmişsiniz, {% if request.user|is_lazy_user %}qonaq{% else %}{{request.user.username}}{% endif %}</span>
+										
+									</div>
+									<ul class="shopping-list">
+										<li>
+											{% if user.is_superuser %}<li><i class="ti-user"></i> <a href="/admin">Admin Panel</a></li>{% else %}{% endif %}
+											<h4><a href="/user/profile">Profilim</a></h4>
+											<hr>
+											<h4><a href="#">Elanlarım</a></h4>
+											<hr>
+											<h4><a href="#">Təkliflər</a></h4>
+											<hr>
+										</li>
+									</ul>
+									<div class="bottom">
+										
+										<a href="{% url "user:userLogout"%}" class="btn animate">Çıxış</a>
+									</div>
+								</div>
 								
 								
 							</ul>
@@ -77,30 +103,9 @@
 						<div class="right-bar">
 							<!-- Search Form -->
 							
-							<div class="sinlge-bar shopping">
-								<a href="#" class="single-icon"><i class="fa fa-user-circle-o"></i >Hesabınız</a>
-								<!-- Shopping Item -->
-								<div class="shopping-item">
-									<div class="dropdown-cart-header">
-										<span>Xoş gəlmişsiniz, {% if request.user|is_lazy_user %}qonaq{% else %}{{request.user.username}}{% endif %}</span>
-										
-									</div>
-									<ul class="shopping-list">
-										<li>
-											{% if user.is_superuser %}<li><i class="ti-user"></i> <a href="/admin">Admin Panel</a></li>{% else %}{% endif %}
-											<h4><a href="/user/profile">Profilim</a></h4>
-											<hr>
-											<h4><a href="#">Elanlarım</a></h4>
-											<hr>
-											<h4><a href="#">Təkliflər</a></h4>
-											<hr>
-										</li>
-									</ul>
-									<div class="bottom">
-										
-										<a href="{% url "user:userLogout"%}" class="btn animate">Çıxış</a>
-									</div>
-								</div>
+							
+							
+								
 								<!--/ End Shopping Item -->
 							</div>
 						</div>
@@ -147,10 +152,12 @@
 														</ul>
 													</li>-->
 																					
-													<li><a href="/news">Xəbərlər<i class="ti-angle-down"></i></a>
+													<li><a href="/news">İtirilənlər<i class="ti-angle-down"></i></a>
 													
 													</li>
-													<li><a href="contact.html">Bizimlə Əlaqə</a></li>
+													<li><a href="?yalniz=tapilanlar">Tapılanlar<i class="ti-angle-down"></i></a>
+													
+													</li>
 												</ul>
 										</div>
 									</div>
